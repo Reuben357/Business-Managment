@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "981898943074",
+    "firebase_url": "https://business-management-e3524.firebaseio.com",
+    "project_id": "business-management-e3524",
+    "storage_bucket": "business-management-e3524.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981898943074:android:9a6b477f79e13360bc4f3b",
+        "android_client_info": {
+          "package_name": "com.reuben.businessmanagment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981898943074-o10apsftstm8eumneh54joh9jf0sbo7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfxXrTBIZoW21jAVlltJ3VseCYE2tBLBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981898943074-o10apsftstm8eumneh54joh9jf0sbo7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981898943074:android:6734ce04731a40c4bc4f3b",
+        "android_client_info": {
+          "package_name": "www.reuben.businessmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981898943074-36qh2a6o5dqjlgdol492oeugo76cuskd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "www.reuben.businessmanagement",
+            "certificate_hash": "2a33798afa884db0f1348faec4404bdee5031f62"
+          }
+        },
+        {
+          "client_id": "981898943074-o10apsftstm8eumneh54joh9jf0sbo7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfxXrTBIZoW21jAVlltJ3VseCYE2tBLBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981898943074-o10apsftstm8eumneh54joh9jf0sbo7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
