@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.textView1)
     TextView tvSignIn;
 
+    ProgressBar progressBar;
+
     FirebaseAuth mFirebaseAuth;
 
     @Override
@@ -38,16 +41,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        AppRate.with(this)
-                .setInstallDays(1)
-                .setLaunchTimes(3)
-                .setRemindInterval(2)
-                .monitor();
-
-        AppRate.showRateDialogIfMeetsConditions(this);
-       // AppRate.with(this).showRateDialog(this);
-
         mFirebaseAuth = FirebaseAuth.getInstance();
+
+
+
+        if (mFirebaseAuth.getCurrentUser() != null){
+            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+            finish();
+        }
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             else {
                                 startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                              //  progressBar.setVisibility(View.GONE);
                             }
                         }
                     });
