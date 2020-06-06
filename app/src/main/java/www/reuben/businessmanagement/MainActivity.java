@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import hotchemi.android.rate.AppRate;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.editText5)
@@ -36,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        AppRate.with(this)
+                .setInstallDays(1)
+                .setLaunchTimes(3)
+                .setRemindInterval(2)
+                .monitor();
+
+        AppRate.showRateDialogIfMeetsConditions(this);
+       // AppRate.with(this).showRateDialog(this);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
