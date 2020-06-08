@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.textView)
     TextView tvSignUp;
     FirebaseAuth mFirebaseAuth;
+
+    ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
@@ -39,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
+        progressBar.findViewById(R.id.progressBar);
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -50,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Please Login", Toast.LENGTH_SHORT).show();
-
+                    progressBar.findViewById(R.id.progressBar).setVisibility(View.GONE);
                 }
             }
         };
@@ -65,10 +69,9 @@ public class LoginActivity extends AppCompatActivity {
                 } else if (pwd.isEmpty()) {
                     password.setError("Please enter password");
                     password.requestFocus();
-                } else if (email.isEmpty() && pwd.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Fields Are Empty!", Toast.LENGTH_SHORT).show();
-                } else if (!(email.isEmpty() && pwd.isEmpty())) {
-                    mFirebaseAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                } else {
+                    mFirebaseAuth.signInWithEmailAndPassword(email, pwd)
+                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()){
@@ -80,9 +83,6 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                     });
-                }
-                else {
-                    Toast.makeText(LoginActivity.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
