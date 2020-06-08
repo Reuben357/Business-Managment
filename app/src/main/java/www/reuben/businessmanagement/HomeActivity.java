@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,12 @@ import hotchemi.android.rate.AppRate;
 public class HomeActivity extends AppCompatActivity {
  @BindView(R.id.logout)
 Button btnLogout;
+  
+FirebaseAuth mFirebaseAuth;
+@BindView(R.id.sell)
+Button btnSell;
+@BindView(R.id.buy)
+Button btnBuy;
 
 @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -41,6 +48,31 @@ Button btnLogout;
 
         }
     });
+
+    btnSell.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+                Toast.makeText(HomeActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
+
+                Intent intentToSell = new Intent(HomeActivity.this, ProductsActivity.class);
+                startActivity(intentToSell);
+
+        }
+    });
+
+    btnBuy.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+            Toast.makeText(HomeActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
+
+            Intent intentToSell = new Intent(HomeActivity.this, ProductsActivity.class);
+            startActivity(intentToSell);
+
+        }
+    });
+
 }
 
 }
