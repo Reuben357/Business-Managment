@@ -19,6 +19,9 @@ Button btnLogout;
 FirebaseAuth mFirebaseAuth;
 @BindView(R.id.sell)
 Button btnSell;
+@BindView(R.id.buy)
+Button btnBuy;
+
 
 @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -38,11 +41,25 @@ Button btnSell;
     btnSell.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+
+                Toast.makeText(HomeActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
+
+                Intent intentToSell = new Intent(HomeActivity.this, ProductsActivity.class);
+                startActivity(intentToSell);
+
+        }
+    });
+
+    btnBuy.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
             Toast.makeText(HomeActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
 
-                Intent intentToSell = new Intent(HomeActivity.this, ProductActivity.class);
-                startActivity(intentToSell);
-            }
+            Intent intentToSell = new Intent(HomeActivity.this, ProductsActivity.class);
+            startActivity(intentToSell);
+
+        }
     });
 
 }
