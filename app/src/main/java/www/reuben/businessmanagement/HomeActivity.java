@@ -55,7 +55,7 @@ Button btnBuy;
 
                 Toast.makeText(HomeActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
 
-                Intent intentToSell = new Intent(HomeActivity.this, ProductsActivity.class);
+                Intent intentToSell = new Intent(HomeActivity.this, SellActivity.class);
                 startActivity(intentToSell);
 
         }
